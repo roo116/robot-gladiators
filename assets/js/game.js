@@ -1,17 +1,43 @@
-window.alert("This is an alert! Javascript is running!");
+//set up player's robot
+var playerName = window.prompt("What is your robot's name");
+var playerHealth = 100;
+var playerAttack = 10;
 
-// fight function
-function fight() {
-    window.alert("The fight has begun!");
-}
+//log values in console.log
+console.log(playerName, playerAttack, playerHealth);
 
-//get robot's name
-var playerName = window.prompt("What is your robot's name?")
-console.log(playerName)
+// set up enemy robot
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-console.log("This holds a string, good for leaving yourself a message.")
-//This will do math and log 20
-console.log(10 + 10)
-//what is this?
-console.log("Our robot's name is " + playerName)
-// fight();
+// creating a fight function expression
+var fight = function () {
+    window.alert("Welcome to Robot Gladiators!");
+
+    // Subtract the the value of playerAttack from the value of enemyHealth and use that result to update the value in enemyHealth var
+        enemyHealth = enemyHealth - playerAttack;
+    // log result
+        console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+        //  check enemy health
+            if (enemyHealth <=0) {
+                window.alert(enemyName + " had died!");
+            } else {
+                window.alert(enemyName + " still has " + enemyHealth + " left!");
+            }   
+   
+    // subtract enemyAttack from playerHealth, update playerHealth var
+        playerHealth = playerHealth - enemyAttack;
+    // log result
+        console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.")
+        // check player's health
+           if(playerHealth <= 0) {
+               window.alert(playerName + " has died!")
+           } else {
+               window.alert(playerName + " still has " + playerHealth + " left!")
+           }
+};
+
+
+fight();
+
