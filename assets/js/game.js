@@ -12,8 +12,7 @@ var enemyAttack = 12;
 // creating a fight function expression
 var fight = function (enemyName) {
     while (playerHealth > 0 && enemyHealth > 0) {
-        window.alert("Welcome to Robot Gladiators!");
-
+        
         // ask player if they want to fight or run
         var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle?  Enter 'FIGHT' or 'SKIP' to choose.");
 
@@ -42,7 +41,7 @@ var fight = function (enemyName) {
        
         //  check enemy health
         if (enemyHealth <= 0) {
-            window.alert(enemyName + " had died!");
+            window.alert(enemyName + " has died!");
 
         // award player money for kicking a$$
         playerMoney = playerMoney + 20;
@@ -72,8 +71,22 @@ var fight = function (enemyName) {
 
 // FIGHT!!!!
 for (var i = 0; i < enemyNames.length; i++) {
+    
+    //checks player health to see if the player is eligible.  If so, welcome them to the current round
+    if(playerHealth > 0) {
+        window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+    } else {
+        window.alert("You have lost " + playerName + " in battle!  Game Over!");
+        break;
+    }
+
+    //select an enemy and make sure they have the right amount of health
     var pickedEnemyName = enemyNames[i];
     enemyHealth = 50
+
+    //debug if you need to 
     debugger;
+   
+   //fight the enemy with the fight function
     fight(pickedEnemyName);
 }
